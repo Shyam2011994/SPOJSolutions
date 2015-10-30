@@ -1,0 +1,21 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		long double n,x=0,y,z;
+		cin>>n;
+		z=n;
+		while(z--){
+			cin>>y;
+			x=x+y;
+		}
+		if(fmod(x,n)==0)
+		cout<<"YES"<<endl;
+		else
+		cout<<"NO"<<endl;
+	}
+	return 0;
+}
