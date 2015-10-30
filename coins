@@ -1,0 +1,23 @@
+#include<cstdio>
+#include<map>
+#include<algorithm>
+using namespace std;
+map<int,long long> dp;
+long long recur(int n){
+	if(n==0)
+	return 0;
+	if(dp[n]!=0)
+	return dp[n];
+	long long aux=recur(n/2)+recur(n/3)+recur(n/4);
+    if(aux>n) dp[n]=aux;
+    else dp[n]=n;
+    return dp[n];
+}
+int main(){
+	int n;
+	while(scanf("%d",&n)==1){
+	printf("%lld",recur(n));
+	printf("\n");
+}
+	return 0;
+}
