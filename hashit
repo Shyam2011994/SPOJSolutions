@@ -1,0 +1,90 @@
+#include<iostream>
+#include<string>
+#include<string.h>
+using namespace std;
+int findkey(char str[]){
+	int l=strlen(str);
+	int i=1;
+	int key=0;
+	while(l--){
+		key+=((int)str[i-1]*i);
+		++i;
+	}
+	key=19*key;
+	key=key%101;
+	return (key);
+}
+void addhash(string *hm,char str[],int &num){
+	int key=findkey(str);
+	if(!hm[key].compare(str))
+	return;
+	if(hm[key].length()>0){
+		int j=1;
+		while(j<20 && hm[(key+(j*j)+(23*j))%101].length()>0)
+			++j;
+		if(j==20){
+			return;
+		}
+		else{
+			hm[(key+(j*j)+(23*j))%101].insert(0,str,strlen(str));
+			++num;
+		}
+	}
+	else{
+		hm[key].insert(0,str,strlen(str));
+		++num;
+	}
+}
+void delhash(string *hm,char str[],int &num){
+	int key=findkey(str);
+		if(!hm[key].compare(str)){
+			--num;
+			hm[key].clear();
+			return;
+		}
+			int j=1;
+		while(j<20 && hm[(key+(j*j)+(23*j))%101].compare(str))
+			++j;
+		if(j==20){
+			return;
+		}
+		else if(!hm[(key+(j*j)+(23*j))%101].compare(str)){
+			--num;
+			hm[(key+(j*j)+(23*j))%101].clear();
+			return;
+}
+}
+int main(){
+   int t;
+   cin>>t;
+   while(t--){
+   	int n;
+   	string hm[101];
+   	cin>>n;
+   	int num=0;
+   	while(n--){
+   		char str[20];
+   		const char add[5]={"ADD:"};
+   		const char del[5]={"DEL:"};
+   		char fun[5];
+   		char mainstr[16]="\0";
+   		cin>>str;
+   		strncpy(fun,str,4);
+   		strncpy(mainstr,str+4,strlen(str)-4);
+   		if(!strcmp(fun,add)){
+   			addhash(hm,mainstr,num);
+		   }
+		else if(!strcmp(fun,del)){
+			delhash(hm,mainstr,num);
+		}
+	   }
+   		cout<<num<<endl;
+   		int k=0;
+   		for(k=0;k<101;k++)
+   		if(hm[k].length()>0){
+   			cout<<k<<":"<<hm[k]<<endl;
+		   }
+		   
+   }
+	return 0;
+}
