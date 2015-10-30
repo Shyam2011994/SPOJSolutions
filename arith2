@@ -1,0 +1,51 @@
+#include<iostream>
+#include<string.h>
+#include<stdlib.h>
+using namespace std;
+int getnum(string str,int i){
+	while(str[i]!='+' && str[i]!='-' && str[i]!='*' && str[i]!='/' && str[i]!='=')
+	++i;
+	return i;
+}
+int main(){
+	int t;
+	cin>>t;
+  	std::string::size_type sz = NULL; 
+	while(t--){
+		char str[100000];
+		cin>>str;
+		char x[100];
+		int i=0,j;
+		j=getnum(str,i);
+		i=j+1;
+		strncpy(x,str,j);
+		long int ans=0;
+		ans=atol(x);
+		long int temp=0;
+		while(str[j]!='='){
+			j=getnum(str,j+1);
+			strncpy(x,str+i,j-i);
+			temp=atol(x);			
+			switch (str[j]){
+				case '+':
+					ans=ans+temp;	
+					break;
+					
+				case '-':
+					ans=ans-temp;
+					break;
+				case '*':
+					ans=ans*temp;
+					break;
+				case '/':
+					ans=ans/temp;
+					break;			
+			}
+			i=j+1;
+		}
+		cout<<ans<<endl; 
+	}
+	
+	
+	return 0;
+}
