@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+void printr(int n){
+	int i=1,count=0;
+	while(count<n){
+		count+=i;
+		++i;
+	}
+	--i;
+	int x,y;
+	int z=n-(count-i);
+	if(i%2==0){
+		x=1;
+		y=i;
+	}
+	else{
+		x=i;
+		y=1;
+	}
+	while(--z){
+		if(i%2==0){
+			++x;
+			--y;
+		}	
+		else{
+			--x;
+			++y;
+		}	
+			}
+	cout<<"TERM"<<" "<<n<<" "<<"IS"<<" "<<x<<"/"<<y<<endl;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		printr(n);
+	}
+	return 0;
+}
