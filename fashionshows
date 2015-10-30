@@ -1,0 +1,25 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int min(int x,int y){
+	return x<y?x:y;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int m,ans=0,z=0;
+		cin>>m;
+		int ma[m],wo[m];
+		for(z=0;z<m;z++)
+		cin>>ma[z];
+		for(z=0;z<m;z++)
+		cin>>wo[z];
+		sort(ma,ma+m);
+		sort(wo,wo+m);
+		for(z=0;z<m;z++)
+			ans=ans+(ma[z]*wo[z]);
+		cout<<ans<<endl;
+	}
+	return 0;
+}
