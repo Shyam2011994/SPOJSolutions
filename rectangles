@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	cin>>n;
+	int x=n,ans=0,c=1;
+	while(x>0){
+		ans=ans+x;
+		++c;
+		x=int(n/c)-(c-1);
+	}
+	cout<<ans;
+	return 0;
+}
