@@ -1,0 +1,20 @@
+#include<stdio.h>
+using namespace std;
+void f(float t){
+	int i=0;
+	float y=0;
+	while(y<t){
+		y=y+(1.0/(2.0+i));
+		++i;
+	}
+	printf("%d card(s)\n",i);
+}
+int main(){
+	float t;
+	scanf("%f",&t);
+	while(t){
+		f(t);
+		scanf("%f",&t);
+	}
+	return 0;
+} 
