@@ -1,0 +1,14 @@
+#include<stdio.h> 
+int main() { 
+int t; 
+long long unsigned x;
+scanf("%d",&t); 
+while(t--) {
+scanf("%llu",&x); 
+if(x%2==0)
+printf("%llu\n",((x*(x+2)*(2*x+1))/8));
+else 
+printf("%llu\n",((x*(x+2)*(2*x+1))-1)/8);
+} 
+return 0; 
+}
