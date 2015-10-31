@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+bool willstop(long long n){
+	while(n>1){
+		if(n&1!=0)
+		return 0;
+		else
+		n=n>>1; 
+	}
+	return 1;
+}
+int main(){
+	long long n;
+	cin>>n;
+	if(willstop(n))
+	cout<<"TAK"<<endl;
+	else
+	cout<<"NIE"<<endl;	
+	return 0;
+}
