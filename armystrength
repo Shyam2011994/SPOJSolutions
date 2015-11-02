@@ -1,0 +1,31 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int ng,nm,i=0,j=0;
+		cin>>ng>>nm;
+		int g[ng],m[nm];
+		for(i=0;i<ng;i++)
+		cin>>g[i];
+		for(i=0;i<nm;i++)
+		cin>>m[i];
+		sort(g,g+ng);
+		sort(m,m+nm);
+		i=j=0;
+		while(i<ng && j<nm){
+			if(g[i]<m[j])
+			++i;
+			if(g[i]>=m[j])
+			++j;
+		}
+		if(i==ng)
+		cout<<"MechaGodzilla"<<endl;
+		else if(j==nm)
+		cout<<"Godzilla"<<endl;
+	}
+	
+	return 0;
+}
