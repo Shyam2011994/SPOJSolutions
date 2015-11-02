@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		long long x,y,s,n,a,d,i;
+		cin>>x>>y>>s;
+		n=(2*s)/(x+y);
+		d=(y-x)/(n-5);
+		a=x-(2*d);
+		i=a;
+		cout<<n<<endl;
+		while(n--){
+			cout<<a;
+			cout<<" ";
+			a=a+d;
+		}
+		cout<<endl;
+	}
+	
+	return 0;
+}
