@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main(void){
+	int g,b;
+	cin>>g>>b;
+	while(g!=-1 && b!=-1){
+		int x=(g>b?g:b),y=(g<b?g:b);
+		if(y==0 || x==0)
+		cout<<x<<endl;
+		else{
+			++y;
+			int r=x/y;
+			if(x%y)
+			++r;
+			cout<<r<<endl;
+			}
+			cin>>g>>b;
+		}
+		
+		return 0;
+			}
