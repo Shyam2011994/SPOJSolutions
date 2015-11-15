@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+void findbeehive(int n){
+		int i=0,j=1;
+		while(j<n){
+			j=j+(6*i);
+			++i;
+		}
+		if(j==n)
+		cout<<"Y"<<endl;
+		else
+		cout<<"N"<<endl;
+	}
+int main(){
+	int n;
+	cin>>n;
+	while(n!=-1){
+		findbeehive(n);
+		cin>>n;
+	}
+	
+	return 0;
+}
