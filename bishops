@@ -1,0 +1,19 @@
+import java.math.BigInteger;
+import java.util.*;
+public class Main {
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		BigInteger x=new BigInteger("2");
+		while(s.hasNext()){
+		BigInteger n=new BigInteger(s.next());
+		if(n.compareTo(x.divide(x))==0){
+			System.out.println("1");
+		}
+		else{
+			n=n.multiply(x);
+			System.out.println(n.subtract(x));
+		}
+	}
+		s.close();
+	}
+}
