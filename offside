@@ -16,7 +16,7 @@ int main(){
 				fmin=x;
 			}
 			else{
-				if(x>fmin && x<smin)
+				if(x>fmin && x<=smin)
 				smin=x;
 			}
 		}
