@@ -1,0 +1,13 @@
+#include<cstdio>
+int main(){
+	int t,r;
+	scanf("%d",&t);
+	int a=1;
+	while(a<=t){
+		scanf("%d",&r);
+		double ans=((double)r)*((double)r)*4+0.25;
+		printf("Case %d: %.2f\n",a,ans);
+		++a;
+	}
+	return 0;
+}
