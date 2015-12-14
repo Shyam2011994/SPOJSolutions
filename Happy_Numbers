@@ -1,0 +1,32 @@
+#include<iostream>
+#include <map>
+using namespace std;
+int main(){
+	map <int,int> m;
+	map<int,int>::iterator it;
+	int n,flag=1,count=0,x=0;
+	cin>>n;
+	do{
+		x=0;
+		while(n!=0){
+			x=x+(n%10)*(n%10);
+			n/=10;
+		}
+		++count;
+		it=m.find(x);
+		if(it==m.end()){
+			m[x]=x;	
+		}
+		else{
+			flag=0;
+			break;
+		}
+		n=x;
+	}
+	while(x!=1);
+	if(!flag)
+	cout<<"-1"<<endl;
+	else if(x==1)
+	cout<<count<<endl;
+	return 0;
+}
