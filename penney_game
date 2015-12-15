@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+#include<map>
+using namespace std;
+int main(){
+	int t,x;
+	string s;
+	map <string,int> m;
+	cin>>t;
+	//TTT, TTH, THT, THH, HTT, HTH, HHT and HHH
+	while(t--){
+		cin>>x;
+		cin>>s;
+		int l=s.length(),i=0;
+		l=l-2;
+		m["TTT"]=0;
+		m["TTH"]=0;
+		m["THT"]=0;
+		m["THH"]=0;
+		m["HTT"]=0;
+		m["HTH"]=0;
+		m["HHT"]=0;
+		m["HHH"]=0;
+		while(l>0){
+			string sub=s.substr(i,3);
+			m[sub]++;
+			sub.clear();
+			++i;	
+			--l;
+		}
+		cout<<x<<" ";
+		cout<<m["TTT"]<<" "<<m["TTH"]<<" "<<m["THT"]<<" "<<m["THH"]<<" "<<m["HTT"]<<" "<<m["HTH"]<<" "<<m["HHT"]<<" "<<m["HHH"]<<endl;
+	}
+	return 0;
+}
