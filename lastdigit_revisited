@@ -1,0 +1,32 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+int remain(int a,long long b){
+	int ans=1;
+	a=a%10;
+	while(b>0){
+		if(b%2==1)
+		ans=(ans*a)%10;
+		b=b>>1;
+		a=(a*a)%10;
+	}
+	return ans;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		long long b;
+		char a[1001];
+		cin>>a;
+		cin>>b;
+		int x=a[strlen(a)-1]-'0';
+		if(b==0 || x==1)
+		 cout<<"1"<<endl;
+		 else{
+		 	cout<<remain(x,b)<<endl;
+		 }
+	}
+	
+	return 0;
+}
