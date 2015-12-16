@@ -1,0 +1,46 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+ofstream myfile;
+int log(int x){
+	int logg = 0;
+	while(x !=0){
+	x=x>>1;
+	logg++;
+	}
+	--logg;
+	return logg;
+	}
+void findpattern(int x){
+int logx,evenFactor;
+	if(x==1)
+		myfile<<"2(0)";
+	else if(x==2)
+		myfile<<"2";
+	else{
+		logx=log(x);
+		evenFactor=1<<logx;
+		if(x>evenFactor){
+			findpattern(evenFactor);
+			myfile<<"+";
+			findpattern(x-evenFactor);
+		}
+		else{
+			myfile<<"2(";
+			findpattern(logx);
+			myfile<<")";
+		}
+	 }
+}
+int main(){
+	int x[7]={137, 1315, 73, 136, 255, 1384, 16385};
+  	myfile.open ("C:\\anyfile.txt");
+	for(int i=0;i<7;i++)
+	{
+		myfile<<x[i]<<"=";
+		findpattern(x[i]);
+		myfile<<endl;
+	}
+	myfile.close();
+	return 0;
+}
