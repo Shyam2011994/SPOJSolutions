@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string.h>
+#include<stdlib.h>
+using namespace std;
+long long int compute(long long int n,long long int m,char c){
+	if(c=='+')
+		n=n+m;
+	else if(c=='-')
+		n=n-m;
+	else if(c=='*')
+		n=n*m;
+	else
+		n=n/m;
+	return n;
+}
+int main(){
+	int t;
+	cin>>t;
+	char x[256],c;
+	long long int n,m;
+	while(t--){
+	cin>>x;
+	cin>>c;
+	n=atoll(x);
+	x[0]='\0';
+	cin>>x;
+	m=atoll(x);
+	x[0]='\0';
+	n=compute(n,m,c);
+	cin>>c;
+	while(c!='='){
+		cin>>x;
+		m=atoll(x);
+		x[0]='\0';
+		n=compute(n,m,c);
+		cin>>c;
+	}
+	cout<<n<<endl;
+}
+	return 0;
+}
